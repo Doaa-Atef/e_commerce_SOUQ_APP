@@ -1,0 +1,60 @@
+import 'package:e_commerce_application/core/styles/app_colors.dart';
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../../core/routes/routes.dart';
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+
+  checkLoginStatus() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    int? userId = prefs.getInt("id");
+    if (userId != null) {
+     Navigator.pushNamed(context, Routes.main);
+    }
+    else {
+ Navigator.pushNamed(context, Routes.login);
+    }
+  }
+
+
+  @override
+  void initState() {
+    Future.delayed(Duration(seconds: 2
+    )).then(
+            (onValue) {
+checkLoginStatus();
+        }
+    );
+  }
+
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.secondaryColor,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.storefront_outlined,
+              size: 100,
+              color: AppColors.primaryColor,
+            ),
+            SizedBox(height: 10,),
+            Text("SOUQ APP", style: TextStyle(color:
+            AppColors.blackTextColor,
+                fontWeight: FontWeight.w700,
+                fontSize: 25
+            ),)
+
+          ],),
+      ),
+    );
+  }
+}
