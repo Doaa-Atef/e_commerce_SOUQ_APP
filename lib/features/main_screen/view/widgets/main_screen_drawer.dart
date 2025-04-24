@@ -2,7 +2,10 @@ import 'package:e_commerce_application/features/login/view/screen/login_screen.d
 import 'package:e_commerce_application/features/login/view_model/login_cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../../core/shared_prefs/shared_prefs.dart';
 
 
 class MainScreenDrawer extends StatelessWidget {
@@ -46,12 +49,15 @@ class MainScreenDrawer extends StatelessWidget {
                 )
               ],
             ),
+
             SizedBox(height: 20,),
             Divider(),
             SizedBox(height: 20,),
+            listTileItem(text: "Email",icon: FontAwesomeIcons.envelope),
+            listTileItem(text: "phone",icon: Icons.phone),
             listTileItem(text: "Notifications",icon: Icons.notifications_none_rounded),
             listTileItem(text: "Favorites",icon: Icons.favorite_outline_rounded),
-            listTileItem(text: "Orders",icon: Icons.pest_control_rodent_outlined),
+            listTileItem(text: "Orders",icon: FontAwesomeIcons.clipboardList),
             listTileItem(text: "Settings",icon: Icons.settings),
             listTileItem(text: "Contact Us",icon: Icons.contacts),
             listTileItem(text: "FAQS",icon: Icons.question_answer_outlined),
@@ -60,8 +66,7 @@ class MainScreenDrawer extends StatelessWidget {
             Spacer(),
             InkWell(
               onTap: () async {
-                final SharedPreferences prefs = await SharedPreferences.getInstance();
-                prefs.remove("id");
+                SharedPrefs.remove("id");
                 Navigator.pushReplacement(
                     context, MaterialPageRoute(builder: (BuildContext context) {
                   return BlocProvider(
@@ -75,7 +80,6 @@ class MainScreenDrawer extends StatelessWidget {
                 title: Text("LogOut"),
               ),
             )
-
           ],
         ),
       ),

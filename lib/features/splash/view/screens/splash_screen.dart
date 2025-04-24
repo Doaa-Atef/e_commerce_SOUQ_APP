@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/routes/routes.dart';
+import '../../../../core/shared_prefs/shared_prefs.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -14,8 +15,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
 
   checkLoginStatus() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    int? userId = prefs.getInt("id");
+    int? userId = await SharedPrefs.getInt("id");
     if (userId != null) {
      Navigator.pushNamed(context, Routes.main);
     }
