@@ -1,3 +1,4 @@
+import 'package:e_commerce_application/features/categories/view/screens/categories_screen.dart';
 import 'package:e_commerce_application/features/home/view/screens/home_screen.dart';
 import 'package:e_commerce_application/features/main_screen/view/widgets/main_screen_drawer.dart';
 import 'package:flutter/material.dart';
@@ -13,12 +14,13 @@ class _MainScreenState extends State<MainScreen> {
 
   List<Widget> screens=[
     HomeScreen(),
-    Center(child: Text("Categories")),
+    CategoriesScreen(),
     Center(child: Text("Cart")),
   ];
   int index =0;
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)
+  {
     return Scaffold(
      appBar: AppBar(),
       drawer: MainScreenDrawer(),
@@ -30,8 +32,7 @@ class _MainScreenState extends State<MainScreen> {
             });
           },
           items:
-      [
-        BottomNavigationBarItem(label:"Home",icon: Icon(Icons.home_outlined)),
+      [BottomNavigationBarItem(label:"Home",icon: Icon(Icons.home_outlined)),
         BottomNavigationBarItem(label:"Categories",icon: Icon(Icons.category_outlined)),
         BottomNavigationBarItem(label:"Cart",icon: Icon(Icons.shopping_cart_outlined)),
       ]),

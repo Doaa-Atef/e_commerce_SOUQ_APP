@@ -15,7 +15,7 @@ class MainScreenDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 50,
+        padding: const EdgeInsets.symmetric(vertical: 35,
             horizontal: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,9 +50,8 @@ class MainScreenDrawer extends StatelessWidget {
               ],
             ),
 
-            SizedBox(height: 20,),
+
             Divider(),
-            SizedBox(height: 20,),
             listTileItem(text: "Email",icon: FontAwesomeIcons.envelope),
             listTileItem(text: "phone",icon: Icons.phone),
             listTileItem(text: "Notifications",icon: Icons.notifications_none_rounded),

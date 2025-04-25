@@ -1,26 +1,23 @@
-import 'package:e_commerce_application/features/product_details/view/screen/product_details_screen.dart';
-import 'package:e_commerce_application/features/product_details/view_model/product_details_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../core/routes/routes.dart';
 import '../../../../core/styles/app_colors.dart';
 import '../../../product_details/product_details_args.dart';
-import '../../view_model/home_cubit.dart';
 
 class ProductItem extends StatelessWidget {
-  const ProductItem({super.key, required this.index});
-
-  final int index;
+  const ProductItem({super.key, required this.image, required this.name, required this.price, required this.productId,  this.discount = 0,});
+  final String image;
+  final String name;
+  final num price;
+  final int productId;
+  final int discount;
   @override
   Widget build(BuildContext context) {
 
     return InkWell(
       onTap: (){
-        final int id=  context.read<HomeCubit>().homeResponseModel.homeData.homeProducts[index].id;
 
         Navigator.pushNamed(context, Routes.productDetails,
-        arguments: ProductDetailsArgs(productId: id),
+        arguments: ProductDetailsArgs(productId: productId),
         );
       },
       child: Container(
@@ -38,13 +35,11 @@ class ProductItem extends StatelessWidget {
             Column(
               children: [
                 SizedBox(height: 30,),
-                Image.network(context.read<HomeCubit>().homeResponseModel.
-                homeData.homeProducts[index].image,
+                Image.network(image,
                   height: 125,
                   width: 125,),
                 Divider(),
-                Text(context.read<HomeCubit>().homeResponseModel.
-                homeData.homeProducts[index].name,
+                Text(name,
                   maxLines: 2,
                   textAlign: TextAlign.center,),
               ],

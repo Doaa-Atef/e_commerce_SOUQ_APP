@@ -22,6 +22,11 @@ class SharedPrefs {
     return prefs.getInt(key);
   }
 
+  static Future<String?> getString(String key) async {
+    final prefs = await _instance;
+    return prefs.getString(key);
+  }
+
   static Future<bool> remove(String key) async {
     final prefs = await _instance;
     return await prefs.remove(key);

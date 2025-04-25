@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 
 class MyApp extends StatefulWidget {
-   MyApp({super.key});
+  MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -19,11 +19,11 @@ class _MyAppState extends State<MyApp> {
   }
   Widget build(BuildContext context) {
     return MaterialApp(
-    theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: AppColors.primaryColor)),
-        debugShowCheckedModeBanner: false,
-        onGenerateRoute: RouteServices.generateRoute,
+      theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: AppColors.primaryColor)),
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: RouteServices.generateRoute,
 // home: SplashScreen(),
 
 

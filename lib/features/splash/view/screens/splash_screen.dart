@@ -17,10 +17,10 @@ class _SplashScreenState extends State<SplashScreen> {
   checkLoginStatus() async {
     int? userId = await SharedPrefs.getInt("id");
     if (userId != null) {
-     Navigator.pushNamed(context, Routes.main);
+     Navigator.pushReplacementNamed(context, Routes.main);
     }
     else {
- Navigator.pushNamed(context, Routes.login);
+ Navigator.pushReplacementNamed(context, Routes.login);
     }
   }
 

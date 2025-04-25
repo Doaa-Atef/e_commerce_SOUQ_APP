@@ -5,4 +5,5 @@ class EndPoints{
   static const String home= "home";
   static const String categories= "categories";
   static const String productDetails= "products/";
+  static const String categoryDetails= "categories/";
 }
