@@ -9,6 +9,9 @@ class AppDio{
       baseUrl: "https://student.valuxapps.com/api/",
       headers: {
         "lang":"en",
+        "Content-Type":"application/json",
+        "Accept":"application/json",
+
       },
       receiveTimeout: Duration(seconds: 60),
       connectTimeout: Duration(seconds: 60),
@@ -51,6 +54,7 @@ class AppDio{
       print("deleted Data ====> ${response}");
       return response;
     } on DioException catch(e){
+      print("delete error =====> ${e.message}");
       print("delete error =====> ${e.response}");
       return e.response;
     }

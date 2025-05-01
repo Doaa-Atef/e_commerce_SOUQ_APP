@@ -44,7 +44,7 @@ class ProductDetailsData{
      return ProductDetailsData(
          id: json ['id'] ?? 0,
          price: json ['price'] ??0,
-         oldPrice: json ['oldPrice']??0,
+         oldPrice: json ['old_price']??0,
          discount: json ['discount']??0,
          name: json ['name']??"",
          description:json ['description']??"",

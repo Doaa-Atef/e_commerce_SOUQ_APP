@@ -2,7 +2,7 @@ import 'package:e_commerce_application/features/category_details/view_model/cate
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../home/view/widgets/product_item.dart';
+import '../../../shared/widgets/product_item.dart';
 
 class CategoryDetailsScreen extends StatelessWidget {
   const CategoryDetailsScreen({super.key, required this.id});

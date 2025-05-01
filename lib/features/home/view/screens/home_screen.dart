@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 import 'package:e_commerce_application/features/home/view/widgets/banners_list.dart';
 import 'package:e_commerce_application/features/home/view/widgets/products_list.dart';
 import 'package:e_commerce_application/features/home/view_model/home_cubit.dart';

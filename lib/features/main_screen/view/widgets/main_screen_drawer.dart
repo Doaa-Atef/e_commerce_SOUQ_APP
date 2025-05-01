@@ -3,7 +3,6 @@ import 'package:e_commerce_application/features/login/view_model/login_cubit/log
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/shared_prefs/shared_prefs.dart';
 
@@ -33,7 +32,7 @@ class MainScreenDrawer extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Doaa Atef Muhammed",
+                      Text("Ahmed Atef Muhammed",
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(fontSize: 20,
@@ -49,7 +48,6 @@ class MainScreenDrawer extends StatelessWidget {
                 )
               ],
             ),
-
 
             Divider(),
             listTileItem(text: "Email",icon: FontAwesomeIcons.envelope),

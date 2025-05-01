@@ -14,7 +14,7 @@ class ProductDetailsCubit extends Cubit<ProductDetailsState> {
 
       emit(ProductDetailsLoading());
       final response = await AppDio.getData(endPoint: EndPoints.productDetails+productId.toString());
-      print("Response====>  >> ${response}");
+      print("Response====>  >> $response");
    if(response == "Not Found"){
      emit(ProductDetailsError(message: "Not Found"));
    }else{

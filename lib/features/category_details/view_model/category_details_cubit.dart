@@ -16,7 +16,7 @@ class CategoryDetailsCubit extends Cubit<CategoryDetailsState> {
     emit(CategoryDetailsLoading());
 
     try {
-      final response = await AppDio.getData(endPoint: EndPoints.categoryDetails+categoryId.toString());
+      final response = await AppDio.getData(endPoint: EndPoints.categoryDetails + categoryId.toString());
       categoryDetailsModel = CategoryDetailsModel.fromJson(response.data);
       if (categoryDetailsModel.status == true) {
         emit(CategoryDetailsSuccess());

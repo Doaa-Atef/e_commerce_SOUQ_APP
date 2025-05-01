@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:readmore/readmore.dart';
 
+import '../../../../shared/widgets/discount_item.dart';
 import '../../product_details_args.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
@@ -77,7 +78,33 @@ class ProductDetailsScreen extends StatelessWidget {
                           ),
                           SizedBox(height: 10,),
                           Divider(),
-                          SizedBox(height: 10,),
+                          Row(
+                            children: [
+                              Text("${context.read<ProductDetailsCubit>().productDetailsModelResponse.data!.price} EGP  ",style:
+                              TextStyle(fontWeight: FontWeight.w700,fontSize: 15),),
+                              SizedBox(width: 10,),
+
+                              Visibility(
+                                visible: context.read<ProductDetailsCubit>().productDetailsModelResponse.data!.discount !=0,
+                                child: Row(
+                                  children: [
+                                    Text("${context.read<ProductDetailsCubit>().productDetailsModelResponse.data!.oldPrice} EGP  ",style:
+                                      TextStyle(fontSize: 15,color: Colors.red,
+                                      decoration: TextDecoration.lineThrough,),),
+                                    SizedBox(width: 10,),
+
+                                    DiscountItem(discount:  context
+                                        .read<ProductDetailsCubit>()
+                                        .productDetailsModelResponse
+                                        .data!.discount,),
+
+                                  ],
+                                ),
+                              ),
+
+                            ],
+                          ),
+                          Divider(),
                           Text("Description"
                                   ,style: TextStyle(fontSize: 20,
                                   fontWeight: FontWeight.w700),
